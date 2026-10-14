@@ -28,14 +28,13 @@ router.post("/signup", async (req, res) => {
 
     if (
       !isValidEmail(email) ||
-      typeof password !== "string" ||
-      password.length < 12 ||
-      password.length > 128
+      typeof password !== "string"
+      
     ) {
       return res.status(400).json({
         error: "Invalid input",
         message:
-          "Provide a valid email and a password between 12 and 128 characters",
+          "Provide a valid email",
       });
     }
 
@@ -91,9 +90,9 @@ router.post("/login", async (req, res) => {
 
     if (
       typeof email !== "string" ||
-      typeof password !== "string" ||
-      email.length > 254 ||
-      password.length > 128
+      typeof password !== "string"
+      
+      
     ) {
       return res.status(400).json({
         error: "Email and password are required",
